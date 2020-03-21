@@ -65,4 +65,10 @@ node_modules/
 .env
 
 # service account
-roomatematch-7fa9f-firebase-adminsdk-vtjgw-2ce464df85.json
+roomatematch-7fa9f-firebase-adminsdk-vtjgw-2338ccf4a3.json
+
+#database schema for reference
+dbschema.js
+
+#app config keys
+functions/utils/config.js
