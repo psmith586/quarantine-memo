@@ -1,5 +1,6 @@
 const { db } = require('../utils/admin');
 
+//return memos list
 exports.getAllMemos = (req, res) => {
   db
     .collection('memos')
@@ -23,6 +24,7 @@ exports.getAllMemos = (req, res) => {
     });
 };
 
+//post a memo
 exports.postOneMemo = (req, res) => {
   if(req.body.body.trim() === '') {
     return res.status(400).json({ body: 'memo must not be empty' });

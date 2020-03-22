@@ -1,3 +1,4 @@
+//helpers for validation
 const isEmpty = (string) => {
   if(string.trim() === ''){
     return true;
@@ -15,6 +16,7 @@ const isEmail = (email) => {
   }
 };
 
+//validate sing up data
 exports.validateSignUp = (data) => {
 
   let errors = {};
@@ -41,6 +43,7 @@ exports.validateSignUp = (data) => {
   };
 };
 
+//validate login
 exports.validateLogin = (data) => {
   let errors = {};
 

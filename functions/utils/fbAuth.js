@@ -1,5 +1,6 @@
 const { admin, db } = require('./admin');
 
+//authentication middleware, verfiy token from firebase
 module.exports = (req, res, next) => {
   let idToken;
   if(
