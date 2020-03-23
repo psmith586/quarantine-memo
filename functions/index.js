@@ -14,7 +14,8 @@ const{
 const{
   signup,
   login,
-  uploadImage
+  uploadImage,
+  addUserDetails
 } = require('./handlers/users');
 
 //memo routes
@@ -25,6 +26,7 @@ app.post('/memos', FBAuth, postOneMemo);
 app.post('/signup', signup);
 app.post('login', login);
 app.post('/user/image', FBAuth, uploadImage);
+app.post('/user', FBAuth, addUserDetails);
 
 
 exports.api = functions.https.onRequest(app);

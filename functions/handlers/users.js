@@ -6,7 +6,8 @@ firebase.initializeApp(config);
 
 const {
   validateSignUp,
-  validateLogin
+  validateLogin,
+  reduceUserDetails
 } = require('../utils/validators');
 
 //register users
@@ -154,8 +155,23 @@ exports.uploadImage = (req, res) => {
       })
       .catch(err => {
         console.error(err);
-        return res.status(500).json({ error: 'smething went wrong' });
+        return res.status(500).json({ error: 'something went wrong' });
       });
   });
   busboy.end(req.rawBody);
+};
+
+//add profile information
+exports.addUserDetails = (req, res) => {
+  let userDetails = reduceUserDetails(req.body);
+
+  db.doc(`/users/${req.user.handle}`)
+    .update(userDetails)
+    .then(() => {
+      return res.json({ message: 'Details added successfully' });
+    })
+    .catch((err) => {
+      console.error(err);
+      return res.status(500).json({ error: err.code });
+    });
 };
